@@ -1,9 +1,9 @@
 const std = @import("std");
-const unicodeucd = @import("unicode-ucd");
+const ucd = @import("unicode-ucd");
 
-pub fn hasDerivedCoreProperty(cp: u32, comptime prop: unicodeucd.derived_core_properties.CoreProperty.Property) bool {
+pub fn hasDerivedCoreProperty(cp: u32, comptime prop: ucd.derived_core_properties.CoreProperty.Property) bool {
     @setEvalBranchQuota(100_000);
-    inline for (unicodeucd.derived_core_properties.data) |item| {
+    inline for (ucd.derived_core_properties.data) |item| {
         if (item.property == prop) {
             if (cp >= item.from and cp <= item.to) {
                 return true;
@@ -13,9 +13,9 @@ pub fn hasDerivedCoreProperty(cp: u32, comptime prop: unicodeucd.derived_core_pr
     return false;
 }
 
-pub fn hasProperty(cp: u32, comptime prop: unicodeucd.prop_list.PropList.Property) bool {
+pub fn hasProperty(cp: u32, comptime prop: ucd.prop_list.PropList.Property) bool {
     @setEvalBranchQuota(100_000);
-    inline for (unicodeucd.prop_list.data) |item| {
+    inline for (ucd.prop_list.data) |item| {
         if (item.property == prop) {
             if (cp >= item.from and cp <= item.to) {
                 return true;
