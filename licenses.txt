@@ -1,3 +1,7 @@
 MIT:
 = https://spdx.org/licenses/MIT
 - This
+- git https://github.com/nektro/zig-unicode-ucd
+
+Unspecified:
+- git https://github.com/unicode-org/icu
