@@ -5,6 +5,8 @@ license: MIT
 description: An implementation of International Components for Unicode in only Zig
 dependencies:
   - src: git https://github.com/nektro/zig-unicode-ucd
+
+root_dependencies:
   - src: git https://github.com/unicode-org/icu
     id: w3gat1zdicytwwvxn7rqgs0a9wgv7om530itr1t7
     keep: true
