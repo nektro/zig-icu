@@ -36,3 +36,14 @@ pub fn hasEmojiCategory(cp: u32, comptime cat: ucd.emoji.Emoji.Category) bool {
     }
     return false;
 }
+
+/// {0,0} means not found
+pub fn age(cp: u32) [2]u8 {
+    @setEvalBranchQuota(100_000);
+    inline for (ucd.derived_age.data) |item| {
+        if (cp >= item.from and cp <= item.to) {
+            return item.since;
+        }
+    }
+    return .{ 0, 0 };
+}

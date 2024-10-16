@@ -110,7 +110,7 @@ export fn u_hasBinaryProperty(cp: u32, prop: t.UProperty) bool {
         .UCHAR_VERTICAL_ORIENTATION => false, // TODO
         .UCHAR_GENERAL_CATEGORY_MASK => false, // TODO
         .UCHAR_NUMERIC_VALUE => false, // TODO
-        .UCHAR_AGE => false, // TODO
+        .UCHAR_AGE => @as(u16, @bitCast(icu.age(cp))) > 0,
         .UCHAR_BIDI_MIRRORING_GLYPH => false, // TODO
         .UCHAR_CASE_FOLDING => false, // TODO
         .UCHAR_LOWERCASE_MAPPING => false, // TODO
