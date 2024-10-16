@@ -13,4 +13,10 @@ pub fn build(b: *std.Build) void {
     });
     deps.addAllTo(lib);
     b.installArtifact(lib);
+
+    b.installDirectory(.{
+        .source_dir = b.path(deps.dirs._w3gat1zdicyt ++ "/icu4c/source/common/unicode"),
+        .install_dir = .header,
+        .install_subdir = "unicode",
+    });
 }
