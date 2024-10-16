@@ -24,3 +24,15 @@ pub fn hasProperty(cp: u32, comptime prop: ucd.prop_list.PropList.Property) bool
     }
     return false;
 }
+
+pub fn hasEmojiCategory(cp: u32, comptime cat: ucd.emoji.Emoji.Category) bool {
+    @setEvalBranchQuota(100_000);
+    inline for (ucd.emoji.data) |item| {
+        if (item.category == cat) {
+            if (cp >= item.from and cp <= item.to) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
