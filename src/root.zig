@@ -57,3 +57,13 @@ pub fn eastAsianWidth(cp: u32) ?ucd.EastAsianWidth {
     }
     return null;
 }
+
+pub fn bidiPairedBracketType(cp: u32) ?ucd.bidi_brackets.BracketPairing.Type {
+    @setEvalBranchQuota(100_000);
+    inline for (ucd.bidi_brackets.data) |item| {
+        if (cp == item.codepoint) {
+            return item.type;
+        }
+    }
+    return null;
+}

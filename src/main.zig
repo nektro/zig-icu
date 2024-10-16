@@ -104,7 +104,7 @@ export fn u_hasBinaryProperty(cp: u32, prop: t.UProperty) bool {
         .UCHAR_GRAPHEME_CLUSTER_BREAK => false, // TODO:
         .UCHAR_SENTENCE_BREAK => false, // TODO:
         .UCHAR_WORD_BREAK => false, // TODO:
-        .UCHAR_BIDI_PAIRED_BRACKET_TYPE => false, // TODO:
+        .UCHAR_BIDI_PAIRED_BRACKET_TYPE => icu.bidiPairedBracketType(cp) != null,
         .UCHAR_INDIC_POSITIONAL_CATEGORY => false, // TODO:
         .UCHAR_INDIC_SYLLABIC_CATEGORY => false, // TODO:
         .UCHAR_VERTICAL_ORIENTATION => false, // TODO:
