@@ -87,7 +87,7 @@ export fn u_hasBinaryProperty(cp: u32, prop: t.UProperty) bool {
         .UCHAR_BLOCK => false, // TODO
         .UCHAR_CANONICAL_COMBINING_CLASS => false, // TODO
         .UCHAR_DECOMPOSITION_TYPE => false, // TODO
-        .UCHAR_EAST_ASIAN_WIDTH => false, // TODO
+        .UCHAR_EAST_ASIAN_WIDTH => icu.eastAsianWidth(cp) != null,
         .UCHAR_GENERAL_CATEGORY => false, // TODO
         .UCHAR_JOINING_GROUP => false, // TODO
         .UCHAR_JOINING_TYPE => false, // TODO

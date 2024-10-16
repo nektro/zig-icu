@@ -47,3 +47,13 @@ pub fn age(cp: u32) [2]u8 {
     }
     return .{ 0, 0 };
 }
+
+pub fn eastAsianWidth(cp: u32) ?ucd.EastAsianWidth {
+    @setEvalBranchQuota(100_000);
+    inline for (ucd.east_asian_width.data) |item| {
+        if (cp >= item.from and cp <= item.to) {
+            return item.prop;
+        }
+    }
+    return null;
+}
