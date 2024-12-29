@@ -15,7 +15,7 @@ pub fn build(b: *std.Build) void {
     b.installArtifact(lib);
 
     b.installDirectory(.{
-        .source_dir = b.path(deps.dirs._w3gat1zdicyt ++ "/icu4c/source/common/unicode"),
+        .source_dir = .{ .cwd_relative = deps.dirs._w3gat1zdicyt ++ "/icu4c/source/common/unicode" },
         .install_dir = .header,
         .install_subdir = "unicode",
     });
