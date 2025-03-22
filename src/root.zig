@@ -67,3 +67,13 @@ pub fn bidiPairedBracketType(cp: u32) ?ucd.bidi_brackets.BracketPairing.Type {
     }
     return null;
 }
+
+pub fn toLower(cp: u32) ?u32 {
+    @setEvalBranchQuota(100_000);
+    inline for (ucd.unicode_data.data) |row| {
+        if (comptime row[11]) |lc| {
+            if (cp == row[0]) return lc;
+        }
+    }
+    return null;
+}
