@@ -17,11 +17,11 @@ pub fn build(b: *std.Build) void {
     lib.use_lld = !disable_llvm;
     b.installArtifact(lib);
 
-    b.installDirectory(.{
-        .source_dir = .{ .cwd_relative = deps.dirs._w3gat1zdicyt ++ "/icu4c/source/common/unicode" },
-        .install_dir = .header,
-        .install_subdir = "unicode",
-    });
+    // b.installDirectory(.{
+    //     .source_dir = .{ .cwd_relative = deps.dirs._w3gat1zdicyt ++ "/icu4c/source/common/unicode" },
+    //     .install_dir = .header,
+    //     .install_subdir = "unicode",
+    // });
 
     const tests = b.addTest(.{
         .root_source_file = b.path("test.zig"),
