@@ -1,5 +1,6 @@
 const std = @import("std");
-const ucd = @import("unicode-ucd");
+
+pub const ucd = @import("unicode-ucd");
 
 pub fn hasDerivedCoreProperty(cp: u32, comptime prop: ucd.derived_core_properties.CoreProperty.Property) bool {
     @setEvalBranchQuota(100_000);
