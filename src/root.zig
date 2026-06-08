@@ -70,11 +70,6 @@ pub fn bidiPairedBracketType(cp: u32) ?ucd.bidi_brackets.BracketPairing.Type {
 }
 
 pub fn toLower(cp: u32) ?u32 {
-    @setEvalBranchQuota(100_000);
-    inline for (ucd.unicode_data.data) |row| {
-        if (comptime row[11]) |lc| {
-            if (cp == row[0]) return lc;
-        }
-    }
-    return null;
+    if (cp > std.math.maxInt(u21)) return null;
+    return ucd.unicode_data.find(@intCast(cp))[11] orelse null; // https://github.com/ziglang/zig/issues/16765
 }
